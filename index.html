@@ -133,7 +133,7 @@ nav a:active { color: var(--lavender-dk); }
 
 /* ── COUNTDOWN ── */
 .countdown-wrap {
-  background: var(--eucalyptus-dk); padding: 3.5rem 1.5rem; text-align:center;
+  background: var(--eucalyptus-dk); padding: 13.5rem 1.5rem; text-align:center;
   position: relative; overflow: hidden;
 }
 .countdown-wrap::before {
@@ -313,6 +313,50 @@ nav a:active { color: var(--lavender-dk); }
 }
 .gift-pill svg { width:14px; height:14px; stroke:var(--eucalyptus-dk); flex-shrink:0; }
 
+/* ── TRANSFER MODAL ── */
+.modal-overlay {
+  display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5);
+  z-index:999; align-items:center; justify-content:center;
+}
+.modal-overlay.active { display:flex; }
+.modal-content {
+  background:white; border-radius:8px; padding:2.5rem 2rem;
+  max-width:400px; width:90%; box-shadow:0 10px 40px rgba(0,0,0,0.2);
+  animation:slideUp 0.3s ease-out;
+}
+@keyframes slideUp { from { transform:translateY(20px); opacity:0; } to { transform:translateY(0); opacity:1; } }
+.modal-header {
+  display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem;
+}
+.modal-header h3 {
+  font-family:var(--serif); font-size:1.4rem; font-style:italic;
+  color:var(--eucalyptus-dk); margin:0;
+}
+.modal-close {
+  background:none; border:none; font-size:1.5rem; cursor:pointer;
+  color:var(--text-mid); padding:0; width:24px; height:24px; display:flex; align-items:center; justify-content:center;
+}
+.transfer-detail {
+  margin:1.2rem 0; padding-bottom:1rem; border-bottom:1px solid var(--mint-lt);
+}
+.transfer-detail:last-child { border-bottom:none; }
+.transfer-label {
+  font-size:0.65rem; letter-spacing:0.12em; text-transform:uppercase;
+  color:var(--text-light); font-weight:600; margin-bottom:0.4rem;
+}
+.transfer-value {
+  font-size:0.95rem; color:var(--text-dark); font-family:monospace;
+  word-break:break-all; padding:0.6rem; background:rgba(138,171,130,0.08);
+  border-left:3px solid var(--mint); padding-left:0.8rem;
+}
+.copy-btn {
+  background:var(--mint); color:var(--eucalyptus-dk); border:none;
+  padding:0.4rem 0.8rem; border-radius:3px; cursor:pointer;
+  font-size:0.62rem; font-weight:600; margin-top:0.5rem;
+  transition:background 0.2s;
+}
+.copy-btn:hover { background:#7ab878; }
+
 /* ── RSVP ── */
 .rsvp-wrap {
   background: var(--eucalyptus-dk); padding:4.5rem 1.5rem; text-align:center;
@@ -475,14 +519,16 @@ footer .quote { font-family:var(--serif); font-style:italic; color:var(--lavende
         <p class="event-name">Ceremonia Religiosa</p>
         <span class="event-time">12:30 pm</span>
         <p class="event-place">Parroquia San Vicente Ferrer<br>Moravia, San José, Costa Rica<br><small style="font-size:0.65rem; color:var(--text-light);">08 · 08 · 2026</small></p>
-        <a href="https://maps.app.goo.gl/uAp5nBmNH4P4v8XMA" class="map-link">Ver en mapa →</a>
+        <p><a href="https://maps.app.goo.gl/uAp5nBmNH4P4v8XMA" class="map-link">Google Maps →</a></p>
+        <a href="https://waze.com/ul/hd1u0xmmyu" class="map-link">Waze →</a>
       </div>
       <div class="event-card">
         <span class="event-icon">🥂</span>
         <p class="event-name">Recepción</p>
-        <span class="event-time">4:00 pm</span>
-        <p class="event-place">Quinta El Portal<br>San José, Costa Rica<br><small style="font-size:0.65rem; color:var(--text-light);">08 · 08 · 2026</small></p>
-        <a href="https://maps.app.goo.gl/duCJnytRpKNCqhHfA" class="map-link">Ver en mapa →</a>
+        <span class="event-time">3:00 pm</span>
+        <p class="event-place">Quinta El Portal<br>Heredia, Costa Rica<br><small style="font-size:0.65rem; color:var(--text-light);">08 · 08 · 2026</small></p>
+        <p><a href="https://maps.app.goo.gl/duCJnytRpKNCqhHfA" class="map-link">Google Maps →</a></p>
+        <a href="https://waze.com/ul/hd1u1nush2" class="map-link">Waze →</a>
       </div>
     </div>
   </div>
@@ -534,22 +580,22 @@ footer .quote { font-family:var(--serif); font-style:italic; color:var(--lavende
     </div>
     <div class="itinerary">
       <div class="it-item">
-        <div class="it-time">12:00 pm</div>
+        <div class="it-time">12:30 pm</div>
         <div class="it-pipe"><div class="it-dot"></div><div class="it-line"></div></div>
         <div><div class="it-event">Ceremonia Religiosa</div><div class="it-sub">Parroquia San Vicente Ferrer · Moravia</div></div>
       </div>
       <div class="it-item">
-        <div class="it-time">4:00 pm</div>
+        <div class="it-time">3:00 pm</div>
         <div class="it-pipe"><div class="it-dot"></div><div class="it-line"></div></div>
         <div><div class="it-event">Recepción &amp; Cóctel</div><div class="it-sub">Quinta El Portal · Bienvenida y brindis</div></div>
       </div>
       <div class="it-item">
-        <div class="it-time">6:00 pm</div>
+        <div class="it-time">4:00 pm</div>
         <div class="it-pipe"><div class="it-dot"></div><div class="it-line"></div></div>
         <div><div class="it-event">¡A bailar!</div><div class="it-sub">Música, baile y mucha celebración</div></div>
       </div>
       <div class="it-item">
-        <div class="it-time">10:00 pm</div>
+        <div class="it-time">9:15 pm</div>
         <div class="it-pipe"><div class="it-dot"></div></div>
         <div><div class="it-event">Cierre de la velada</div><div class="it-sub">Fin de la celebración</div></div>
       </div>
@@ -582,10 +628,10 @@ footer .quote { font-family:var(--serif); font-style:italic; color:var(--lavende
         </p>
         <div style="margin-top:0.9rem; display:flex; flex-wrap:wrap; gap:0.5rem;">
           <span style="display:inline-flex;align-items:center;gap:0.35rem;background:#f5f0e6;border:1px solid #ddd;border-radius:50px;padding:0.28rem 0.7rem;font-size:0.62rem;color:var(--text-mid);">
-            <span style="width:10px;height:10px;border-radius:50%;background:#f5f0e6;border:1.5px solid #ddd5c0;display:inline-block;"></span> Blanco / off-white / ivory
+            <span style="width:10px;height:10px;border-radius:50%;background:#ffffff;border:0.5px solid #ddd5c0;display:inline-block;"></span> Blanco / off-white / ivory
           </span>
           <span style="display:inline-flex;align-items:center;gap:0.35rem;background:#f5f0e6;border:1px solid #ddd;border-radius:50px;padding:0.28rem 0.7rem;font-size:0.62rem;color:var(--text-mid);">
-            <span style="width:10px;height:10px;border-radius:50%;background:#e0d8c4;display:inline-block;"></span> Beige
+            <span style="width:10px;height:10px;border-radius:50%;background:#dcd3bc;display:inline-block;"></span> Beige
           </span>
           <span style="display:inline-flex;align-items:center;gap:0.35rem;background:#f5f0e6;border:1px solid #ddd;border-radius:50px;padding:0.28rem 0.7rem;font-size:0.62rem;color:var(--text-mid);">
             <span style="width:10px;height:10px;border-radius:50%;background:#6b7c5a;display:inline-block;"></span> Verde oliva
@@ -646,11 +692,14 @@ footer .quote { font-family:var(--serif); font-style:italic; color:var(--lavende
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M12 12h.01"/><path d="M17 12h.01"/><path d="M7 12h.01"/></svg>
           Efectivo el día del evento
         </div>
-        <div class="gift-pill">
+        <button id="btn-transfer" class="gift-pill" style="border:none; cursor:pointer; font-family:inherit;">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
           Transferencia bancaria
-        </div>
+        </button>
       </div>
+      <p style="font-size:0.62rem; color:var(--text-light); margin-top:1rem; opacity:0.8;">
+        Haz clic en "Transferencia bancaria" para ver los detalles de la cuenta
+      </p>
     </div>
   </div>
 </div>
@@ -699,6 +748,45 @@ footer .quote { font-family:var(--serif); font-style:italic; color:var(--lavende
   <p class="quote">"Un día más, un día menos"</p>
 </footer>
 
+<!-- TRANSFER MODAL -->
+<div id="transfer-modal" class="modal-overlay">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3>Datos de Transferencia</h3>
+      <button class="modal-close">&times;</button>
+    </div>
+    
+    <div class="transfer-detail">
+      <div class="transfer-label">Banco de Costa Rica</div>
+      <div class="transfer-label">Luis Saborío Hernández</div>
+      <div class="transfer-label">IBAN</div>
+      <div class="transfer-value">CR12 0123 4567 8901 2345 67</div>
+      <button class="copy-btn" onclick="copyToClipboard('CR12012345678901234567')">Copiar</button>
+    </div>
+    
+    <div class="transfer-detail">
+      <div class="transfer-label">Banco de Costa Rica</div>
+      <div class="transfer-label">Gema Arrieta Enríquez</div>
+      <div class="transfer-label">IBAN</div>
+      <div class="transfer-value">CR12 0123 4567 8901 2345 67</div>
+      <button class="copy-btn" onclick="copyToClipboard('CR12012345678901234567')">Copiar</button>
+    </div>
+    
+    <div class="transfer-detail">
+      <div class="transfer-label">SINPE Luis (Número de Teléfono)</div>
+      <div class="transfer-value">+506 8723 8470</div>
+      <button class="copy-btn" onclick="copyToClipboard('87238470')">Copiar</button>
+    </div>
+    
+    <div class="transfer-detail">
+      <div class="transfer-label">SINPE Gema(Número de Teléfono)</div>
+      <div class="transfer-value">+506 8731 1752</div>
+      <button class="copy-btn" onclick="copyToClipboard('87311752')">Copiar</button>
+    </div>
+    
+  </div>
+</div>
+
 <!-- ══════════════════════════════════════════════════════════════════
      COUNTDOWN — diseñado para sobrevivir WhatsApp WebView en iPhone
      Estrategia: timestamp hardcodeado + RAF + setInterval de respaldo
@@ -743,6 +831,44 @@ footer .quote { font-family:var(--serif); font-style:italic; color:var(--lavende
     // Si RAF está activo, el setInterval es redundante pero inocuo
   }
 })();
+
+// Transfer Modal Handler
+(function(){
+  var modal = document.getElementById('transfer-modal');
+  var btnTransfer = document.getElementById('btn-transfer');
+  var btnClose = document.querySelector('.modal-close');
+  
+  if (!modal || !btnTransfer || !btnClose) return;
+  
+  btnTransfer.addEventListener('click', function() {
+    modal.classList.add('active');
+  });
+  
+  btnClose.addEventListener('click', function() {
+    modal.classList.remove('active');
+  });
+  
+  modal.addEventListener('click', function(e) {
+    if (e.target === modal) {
+      modal.classList.remove('active');
+    }
+  });
+})();
+
+function copyToClipboard(text) {
+  navigator.clipboard.writeText(text).then(function() {
+    alert('Copiado: ' + text);
+  }).catch(function() {
+    // Fallback para navegadores antiguos
+    var elem = document.createElement('textarea');
+    elem.value = text;
+    document.body.appendChild(elem);
+    elem.select();
+    document.execCommand('copy');
+    document.body.removeChild(elem);
+    alert('Copiado: ' + text);
+  });
+}
 </script>
 
 </body>
