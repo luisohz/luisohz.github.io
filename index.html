@@ -929,17 +929,23 @@ function copyToClipboard(text) {
 }
 
 const urlString = window.location.search;
-
 // Access searchParams directly from the URL object
 const qtyInvitados = urlString ? new URLSearchParams(urlString).get('inv') : null;
-const qtyURL =
-"https://docs.google.com/forms/d/e/1FAIpQLSdFbLqtQ5_ge5SX5nFuei_CXmQitbWRxuF4ilEDzRy1XeL6ng/viewform?usp=pp_url&entry.858738376="+qtyInvitados;
-console.log(qtyURL)
 
-const myLinkButton = document.getElementById('qr_link_btn');
-const myLinkScan = document.getElementById('qr_link_scan');
-myLinkButton.href = qtyURL;
-myLinkScan.href = qtyURL;
+if(qtyInvitados) {
+
+  const qtyBtnURL =
+    "https://docs.google.com/forms/d/e/1FAIpQLSdFbLqtQ5_ge5SX5nFuei_CXmQitbWRxuF4ilEDzRy1XeL6ng/viewform?usp=pp_url&entry.858738376=" + qtyInvitados;
+
+  const qtyScanURL =
+    "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" + encodeURIComponent(qtyBtnURL);
+
+  const myLinkButton = document.getElementById('qr_link_btn');
+  const myLinkScan = document.getElementById('qr_link_scan');
+  myLinkButton.href = qtyBtnURL;
+  myLinkScan.src = qtyScanURL;
+
+}
 
 </script>
 
