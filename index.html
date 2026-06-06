@@ -220,7 +220,7 @@ nav a:active { color: var(--lavender-dk); }
 .map-link {
   display:inline-block; margin-top:0.9rem; font-size:0.58rem;
   letter-spacing:0.16em; text-transform:uppercase; color:var(--eucalyptus-dk);
-  text-decoration:none; border-bottom:1px solid var(--mint); padding-bottom:1px;
+  text-decoration:none; padding-bottom:1px;
 }
 
 /* ── GALLERY ── */
@@ -517,18 +517,35 @@ footer .quote { font-family:var(--serif); font-style:italic; color:var(--lavende
       <div class="event-card">
         <span class="event-icon">🕊️</span>
         <p class="event-name">Ceremonia Religiosa</p>
-        <span class="event-time">12:30 pm</span>
+        <span class="event-time">12:30 pm</span>  
         <p class="event-place">Parroquia San Vicente Ferrer<br>Moravia, San José, Costa Rica<br><small style="font-size:0.65rem; color:var(--text-light);">08 · 08 · 2026</small></p>
-        <p><a href="https://maps.app.goo.gl/uAp5nBmNH4P4v8XMA" class="map-link">Google Maps →</a></p>
-        <a href="https://waze.com/ul/hd1u0xmmyu" class="map-link">Waze →</a>
+        <!-- <p><a href="https://maps.app.goo.gl/uAp5nBmNH4P4v8XMA" class="map-link">Google Maps →</a></p> -->
+        <!-- <a href="https://waze.com/ul/hd1u0xmmyu" class="map-link">Waze →</a> -->        
+        <p class="map-links-container">
+          &nbsp;
+          <a href="https://maps.app.goo.gl/uAp5nBmNH4P4v8XMA" class="map-link inline-map-btn google-link" target="_blank">
+            <svg width="26px" height="26px" viewBox="0 0 32 32" fill="4e7248" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M2 11.9556C2 8.47078 2 6.7284 2.67818 5.39739C3.27473 4.22661 4.22661 3.27473 5.39739 2.67818C6.7284 2 8.47078 2 11.9556 2H20.0444C23.5292 2 25.2716 2 26.6026 2.67818C27.7734 3.27473 28.7253 4.22661 29.3218 5.39739C30 6.7284 30 8.47078 30 11.9556V20.0444C30 23.5292 30 25.2716 29.3218 26.6026C28.7253 27.7734 27.7734 28.7253 26.6026 29.3218C25.2716 30 23.5292 30 20.0444 30H11.9556C8.47078 30 6.7284 30 5.39739 29.3218C4.22661 28.7253 3.27473 27.7734 2.67818 26.6026C2 25.2716 2 23.5292 2 20.0444V11.9556Z" fill="white"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M24 12.8116L23.9999 12.8541C23.9998 12.872 23.9996 12.8899 23.9994 12.9078C23.9998 12.9287 24 12.9498 24 12.971C24 16.3073 21.4007 19.2604 19.6614 21.2367C19.1567 21.8101 18.7244 22.3013 18.449 22.6957C17.4694 24.0986 16.9524 25.6184 16.8163 26.2029C16.8163 26.6431 16.4509 27 16 27C15.5491 27 15.1837 26.6431 15.1837 26.2029C15.0476 25.6184 14.5306 24.0986 13.551 22.6957C13.2756 22.3013 12.8433 21.8101 12.3386 21.2367C10.5993 19.2604 8 16.3073 8 12.971C8 12.9498 8.0002 12.9287 8.0006 12.9078C8.0002 12.8758 8 12.8437 8 12.8116C8 8.49736 11.5817 5 16 5C20.4183 5 24 8.49736 24 12.8116ZM16 15.6812C17.7132 15.6812 19.102 14.325 19.102 12.6522C19.102 10.9793 17.7132 9.62319 16 9.62319C14.2868 9.62319 12.898 10.9793 12.898 12.6522C12.898 14.325 14.2868 15.6812 16 15.6812Z" fill="#4e7248"></path> <path d="M23.1054 9.21856C22.1258 7.37546 20.4161 5.96177 18.3504 5.34277L13.7559 10.5615C14.3208 9.98352 15.1174 9.62346 16.0002 9.62346C17.7134 9.62346 19.1022 10.9796 19.1022 12.6524C19.1022 13.3349 18.8711 13.9646 18.4811 14.4711L23.1054 9.21856Z" fill="#4e7248"></path> <path d="M12.4311 21.3425C12.4004 21.3076 12.3695 21.2725 12.3383 21.2371C11.1918 19.9344 9.67162 18.2073 8.76855 16.2257L13.5439 10.8018C13.1387 11.3136 12.8976 11.9556 12.8976 12.6526C12.8976 14.3254 14.2865 15.6816 15.9997 15.6816C16.8675 15.6816 17.6521 15.3336 18.2151 14.7727L12.4311 21.3425Z" fill="#4e7248"></path> <path d="M9.89288 7.76562C8.71207 9.12685 8 10.8881 8 12.8117C8 12.8438 8.0002 12.8759 8.0006 12.9079C8.0002 12.9288 8 12.9499 8 12.9711C8 14.1082 8.30196 15.2009 8.76889 16.2254L13.5362 10.8106L9.89288 7.76562Z" fill="#4e7248"></path> <path d="M18.3499 5.34254C17.6068 5.11988 16.8176 5 15.9997 5C13.5514 5 11.36 6.07387 9.89258 7.76553L13.5359 10.8105L13.5438 10.8015C13.6101 10.7178 13.6807 10.6375 13.7554 10.5611L18.3499 5.34254Z" fill="currentColor"></path> </g></svg>
+          </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <a href="https://waze.com/ul/hd1u0xmmyu" class="map-link inline-map-btn waze-link" target="_blank">
+            <svg fill="#4e7248" width="26px" height="26px" viewBox="0 0 24 24" role="img" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><title>Waze icon</title><path d="M13.314 1.59c-.225.003-.45.013-.675.03-2.165.155-4.295.924-6.069 2.327-2.194 1.732-3.296 4.325-3.496 7.05h.002c-.093 1.22-.23 2.15-.469 2.63-.238.479-.42.638-1.24.639C.27 14.259-.4 15.612.266 16.482c1.248 1.657 2.902 2.705 4.72 3.364a2.198 2.198 0 00-.033.367 2.198 2.198 0 002.2 2.197 2.198 2.198 0 002.128-1.668c1.307.12 2.607.14 3.824.1.364-.012.73-.045 1.094-.092a2.198 2.198 0 002.127 1.66 2.198 2.198 0 002.2-2.197 2.198 2.198 0 00-.151-.797 12.155 12.155 0 002.303-1.549c2.094-1.807 3.511-4.399 3.302-7.404-.112-1.723-.761-3.298-1.748-4.608-2.143-2.86-5.53-4.309-8.918-4.265zm.366 1.54c.312.008.623.027.933.063 2.48.288 4.842 1.496 6.4 3.577v.001c.829 1.1 1.355 2.386 1.446 3.792v.003c.173 2.477-.965 4.583-2.777 6.147a10.66 10.66 0 01-2.375 1.535 2.198 2.198 0 00-.98-.234 2.198 2.198 0 00-1.934 1.158 9.894 9.894 0 01-1.338.146 27.323 27.323 0 01-3.971-.148 2.198 2.198 0 00-1.932-1.156 2.198 2.198 0 00-1.347.463c-1.626-.553-3.078-1.422-4.155-2.762 1.052-.096 1.916-.6 2.319-1.408.443-.889.53-1.947.625-3.198v-.002c.175-2.391 1.11-4.536 2.92-5.964h.002c1.77-1.402 3.978-2.061 6.164-2.012zm-3.157 4.638c-.688 0-1.252.579-1.252 1.298 0 .72.564 1.297 1.252 1.297.689 0 1.252-.577 1.252-1.297 0-.711-.563-1.298-1.252-1.298zm5.514 0c-.688 0-1.25.579-1.25 1.298-.008.72.554 1.297 1.25 1.297.688 0 1.252-.577 1.252-1.297 0-.711-.564-1.298-1.252-1.298zM9.641 11.78a.72.72 0 00-.588.32.692.692 0 00-.11.54c.345 1.783 2.175 3.129 4.264 3.129h.125c1.056-.032 2.026-.343 2.816-.922.767-.556 1.29-1.316 1.477-2.137a.746.746 0 00-.094-.547.69.69 0 00-.445-.32.714.714 0 00-.867.539c-.22.93-1.299 1.9-2.934 1.94-1.572.046-2.738-.986-2.926-1.956a.72.72 0 00-.718-.586Z"></path></g></svg>
+          </a>
+        </p>
       </div>
       <div class="event-card">
         <span class="event-icon">🥂</span>
         <p class="event-name">Recepción</p>
         <span class="event-time">3:00 pm</span>
         <p class="event-place">Quinta El Portal<br>Heredia, Costa Rica<br><small style="font-size:0.65rem; color:var(--text-light);">08 · 08 · 2026</small></p>
-        <p><a href="https://maps.app.goo.gl/duCJnytRpKNCqhHfA" class="map-link">Google Maps →</a></p>
-        <a href="https://waze.com/ul/hd1u1nush2" class="map-link">Waze →</a>
+        <!-- <p><a href="https://maps.app.goo.gl/duCJnytRpKNCqhHfA" class="map-link">Google Maps</a></p>
+        <a href="https://waze.com/ul/hd1u1nush2" class="map-link">Waze</a> -->
+        <p class="map-links-container">
+          <a href="https://maps.app.goo.gl/duCJnytRpKNCqhHfA" class="map-link inline-map-btn google-link" target="_blank">
+            <svg width="26px" height="26px" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M2 11.9556C2 8.47078 2 6.7284 2.67818 5.39739C3.27473 4.22661 4.22661 3.27473 5.39739 2.67818C6.7284 2 8.47078 2 11.9556 2H20.0444C23.5292 2 25.2716 2 26.6026 2.67818C27.7734 3.27473 28.7253 4.22661 29.3218 5.39739C30 6.7284 30 8.47078 30 11.9556V20.0444C30 23.5292 30 25.2716 29.3218 26.6026C28.7253 27.7734 27.7734 28.7253 26.6026 29.3218C25.2716 30 23.5292 30 20.0444 30H11.9556C8.47078 30 6.7284 30 5.39739 29.3218C4.22661 28.7253 3.27473 27.7734 2.67818 26.6026C2 25.2716 2 23.5292 2 20.0444V11.9556Z" fill="white"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M24 12.8116L23.9999 12.8541C23.9998 12.872 23.9996 12.8899 23.9994 12.9078C23.9998 12.9287 24 12.9498 24 12.971C24 16.3073 21.4007 19.2604 19.6614 21.2367C19.1567 21.8101 18.7244 22.3013 18.449 22.6957C17.4694 24.0986 16.9524 25.6184 16.8163 26.2029C16.8163 26.6431 16.4509 27 16 27C15.5491 27 15.1837 26.6431 15.1837 26.2029C15.0476 25.6184 14.5306 24.0986 13.551 22.6957C13.2756 22.3013 12.8433 21.8101 12.3386 21.2367C10.5993 19.2604 8 16.3073 8 12.971C8 12.9498 8.0002 12.9287 8.0006 12.9078C8.0002 12.8758 8 12.8437 8 12.8116C8 8.49736 11.5817 5 16 5C20.4183 5 24 8.49736 24 12.8116ZM16 15.6812C17.7132 15.6812 19.102 14.325 19.102 12.6522C19.102 10.9793 17.7132 9.62319 16 9.62319C14.2868 9.62319 12.898 10.9793 12.898 12.6522C12.898 14.325 14.2868 15.6812 16 15.6812Z" fill="#4e7248"></path> <path d="M23.1054 9.21856C22.1258 7.37546 20.4161 5.96177 18.3504 5.34277L13.7559 10.5615C14.3208 9.98352 15.1174 9.62346 16.0002 9.62346C17.7134 9.62346 19.1022 10.9796 19.1022 12.6524C19.1022 13.3349 18.8711 13.9646 18.4811 14.4711L23.1054 9.21856Z" fill="#4e7248"></path> <path d="M12.4311 21.3425C12.4004 21.3076 12.3695 21.2725 12.3383 21.2371C11.1918 19.9344 9.67162 18.2073 8.76855 16.2257L13.5439 10.8018C13.1387 11.3136 12.8976 11.9556 12.8976 12.6526C12.8976 14.3254 14.2865 15.6816 15.9997 15.6816C16.8675 15.6816 17.6521 15.3336 18.2151 14.7727L12.4311 21.3425Z" fill="#4e7248"></path> <path d="M9.89288 7.76562C8.71207 9.12685 8 10.8881 8 12.8117C8 12.8438 8.0002 12.8759 8.0006 12.9079C8.0002 12.9288 8 12.9499 8 12.9711C8 14.1082 8.30196 15.2009 8.76889 16.2254L13.5362 10.8106L9.89288 7.76562Z" fill="#4e7248"></path> <path d="M18.3499 5.34254C17.6068 5.11988 16.8176 5 15.9997 5C13.5514 5 11.36 6.07387 9.89258 7.76553L13.5359 10.8105L13.5438 10.8015C13.6101 10.7178 13.6807 10.6375 13.7554 10.5611L18.3499 5.34254Z" fill="currentColor"></path> </g></svg>
+          </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <a href="https://waze.com/ul/hd1u1nush2" class="map-link inline-map-btn waze-link" target="_blank">
+            <svg fill="#4e7248" width="26px" height="26px" viewBox="0 0 24 24" role="img" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><title>Waze icon</title><path d="M13.314 1.59c-.225.003-.45.013-.675.03-2.165.155-4.295.924-6.069 2.327-2.194 1.732-3.296 4.325-3.496 7.05h.002c-.093 1.22-.23 2.15-.469 2.63-.238.479-.42.638-1.24.639C.27 14.259-.4 15.612.266 16.482c1.248 1.657 2.902 2.705 4.72 3.364a2.198 2.198 0 00-.033.367 2.198 2.198 0 002.2 2.197 2.198 2.198 0 002.128-1.668c1.307.12 2.607.14 3.824.1.364-.012.73-.045 1.094-.092a2.198 2.198 0 002.127 1.66 2.198 2.198 0 002.2-2.197 2.198 2.198 0 00-.151-.797 12.155 12.155 0 002.303-1.549c2.094-1.807 3.511-4.399 3.302-7.404-.112-1.723-.761-3.298-1.748-4.608-2.143-2.86-5.53-4.309-8.918-4.265zm.366 1.54c.312.008.623.027.933.063 2.48.288 4.842 1.496 6.4 3.577v.001c.829 1.1 1.355 2.386 1.446 3.792v.003c.173 2.477-.965 4.583-2.777 6.147a10.66 10.66 0 01-2.375 1.535 2.198 2.198 0 00-.98-.234 2.198 2.198 0 00-1.934 1.158 9.894 9.894 0 01-1.338.146 27.323 27.323 0 01-3.971-.148 2.198 2.198 0 00-1.932-1.156 2.198 2.198 0 00-1.347.463c-1.626-.553-3.078-1.422-4.155-2.762 1.052-.096 1.916-.6 2.319-1.408.443-.889.53-1.947.625-3.198v-.002c.175-2.391 1.11-4.536 2.92-5.964h.002c1.77-1.402 3.978-2.061 6.164-2.012zm-3.157 4.638c-.688 0-1.252.579-1.252 1.298 0 .72.564 1.297 1.252 1.297.689 0 1.252-.577 1.252-1.297 0-.711-.563-1.298-1.252-1.298zm5.514 0c-.688 0-1.25.579-1.25 1.298-.008.72.554 1.297 1.25 1.297.688 0 1.252-.577 1.252-1.297 0-.711-.564-1.298-1.252-1.298zM9.641 11.78a.72.72 0 00-.588.32.692.692 0 00-.11.54c.345 1.783 2.175 3.129 4.264 3.129h.125c1.056-.032 2.026-.343 2.816-.922.767-.556 1.29-1.316 1.477-2.137a.746.746 0 00-.094-.547.69.69 0 00-.445-.32.714.714 0 00-.867.539c-.22.93-1.299 1.9-2.934 1.94-1.572.046-2.738-.986-2.926-1.956a.72.72 0 00-.718-.586Z"></path></g></svg>
+          </a>
+        </p>
       </div>
     </div>
   </div>
@@ -589,11 +606,11 @@ footer .quote { font-family:var(--serif); font-style:italic; color:var(--lavende
         <div class="it-pipe"><div class="it-dot"></div><div class="it-line"></div></div>
         <div><div class="it-event">Recepción &amp; Cóctel</div><div class="it-sub">Quinta El Portal · Bienvenida y brindis</div></div>
       </div>
-      <div class="it-item">
+      <!-- <div class="it-item">
         <div class="it-time">4:00 pm</div>
         <div class="it-pipe"><div class="it-dot"></div><div class="it-line"></div></div>
         <div><div class="it-event">¡A bailar!</div><div class="it-sub">Música, baile y mucha celebración</div></div>
-      </div>
+      </div> -->
       <div class="it-item">
         <div class="it-time">9:15 pm</div>
         <div class="it-pipe"><div class="it-dot"></div></div>
@@ -723,7 +740,7 @@ footer .quote { font-family:var(--serif); font-style:italic; color:var(--lavende
       <span class="qr-label">Escanea para confirmar</span>
     </div>
     <div class="rsvp-txt">
-      <p>Confírmanos tu asistencia vía WhatsApp. Nos encantaría saber si podrás acompañarnos y cuántos lugares reservar para ti y tu familia.</p>
+      <p>Confírmanos tu asistencia escaneando o dando click en el QR, o bien, vía WhatsApp dando click al botón de abajo. Nos encantaría saber si podrás acompañarnos y cuántos lugares de los asignados vas a utilizar.</p>
       <span class="rsvp-deadline">08 de Julio, 2026</span>
       <span class="rsvp-sub">Fecha límite de confirmación</span>
     </div>
@@ -744,7 +761,11 @@ footer .quote { font-family:var(--serif); font-style:italic; color:var(--lavende
 <footer>
   <p class="footer-names">Gema &amp; Luis</p>
   <div class="accent-line" style="margin:1rem auto;"></div>
-  <p>08 · 08 · 2026 &nbsp;·&nbsp; San José, Costa Rica</p>
+  <!-- <p>08 · 08 · 2026 &nbsp;·&nbsp; San José, Costa Rica</p> -->
+  <p>08 · 08 · 2026</p>    
+  <p>&nbsp;</p>
+  <p>San José, Costa Rica</p>
+  <p>&nbsp;</p>
   <p class="quote">"Un día más, un día menos"</p>
 </footer>
 
@@ -773,13 +794,13 @@ footer .quote { font-family:var(--serif); font-style:italic; color:var(--lavende
     </div>
     
     <div class="transfer-detail">
-      <div class="transfer-label">SINPE Luis (Número de Teléfono)</div>
+      <div class="transfer-label">SINPE Luis Saborío Hernández</div>
       <div class="transfer-value">+506 8723 8470</div>
       <button class="copy-btn" onclick="copyToClipboard('87238470')">Copiar</button>
     </div>
     
     <div class="transfer-detail">
-      <div class="transfer-label">SINPE Gema(Número de Teléfono)</div>
+      <div class="transfer-label">SINPE Gema Arrieta Enríquez</div>
       <div class="transfer-value">+506 8731 1752</div>
       <button class="copy-btn" onclick="copyToClipboard('87311752')">Copiar</button>
     </div>
