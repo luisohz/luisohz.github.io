@@ -232,25 +232,48 @@ nav a:active { color: var(--lavender-dk); }
   display:grid; grid-template-columns:repeat(3,1fr);
   gap:6px; max-width:860px; margin:2.5rem auto 0;
 }
+.g-cell {
+  background:rgba(168,197,181,0.1);
+  aspect-ratio:1; display:flex; align-items:center;
+  justify-content:center; flex-direction:column; gap:0.4rem; padding:1rem;
+}
+.g-cell.tall { grid-row:span 2; aspect-ratio:auto; min-height:200px; }
+.g-cell svg { width:22px; height:22px; stroke:var(--mint); opacity:0.35; }
+.g-cell span { font-size:0.48rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--mint); opacity:0.3; }
+/* Container layout */
+.gallery-container {
+  display: grid;
+  /* Automatically fits as many columns as possible with a minimum width of 250px */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  /* Adds a 16px gap between grid rows and columns */
+  gap: 1rem;
+  padding: 1rem;
+}
+/* Image scaling rules */
+.gallery-item img {
+  width: 100%;
+  height: 200px;
+  /* Forces images to fill the box without distorting aspect ratios */
+  object-fit: cover;
+  border-radius: 8px;
+}
+
 .row {
   display: flex;
   flex-wrap: wrap;
   padding: 0 4px;
 }
-
 /* Create four equal columns that sits next to each other */
 .column {
   flex: 25%;
   max-width: 25%;
   padding: 0 4px;
 }
-
 .column img {
   margin-top: 8px;
   vertical-align: middle;
   width: 100%;
 }
-
 /* Responsive layout - makes a two column-layout instead of four columns */
 @media screen and (max-width: 800px) {
   .column {
@@ -258,7 +281,6 @@ nav a:active { color: var(--lavender-dk); }
     max-width: 50%;
   }
 }
-
 /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {
   .column {
@@ -266,32 +288,6 @@ nav a:active { color: var(--lavender-dk); }
     max-width: 100%;
   }
 }
-.g-cell {
-  background:rgba(168,197,181,0.1);
-  aspect-ratio:1; display:flex; align-items:center;
-  justify-content:center; flex-direction:column; gap:0.4rem; padding:1rem;
-}
-/* Container layout */
-.gallery-container {
-  display: grid;
-  /* Automatically fits as many columns as possible with a minimum width of 250px */
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  /* Adds a 16px gap between grid rows and columns */
-  gap: 1rem; 
-  padding: 1rem;
-}
-
-/* Image scaling rules */
-.gallery-item img {
-  width: 100%;
-  height: 200px;
-  /* Forces images to fill the box without distorting aspect ratios */
-  object-fit: cover; 
-  border-radius: 8px;
-}
-.g-cell.tall { grid-row:span 2; aspect-ratio:auto; min-height:200px; }
-.g-cell svg { width:22px; height:22px; stroke:var(--mint); opacity:0.35; }
-.g-cell span { font-size:0.48rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--mint); opacity:0.3; }
 
 /* ── ITINERARY ── */
 .itinerary { display:flex; flex-direction:column; align-items:center; margin-top:2.5rem; }
@@ -612,39 +608,21 @@ footer .quote { font-family:var(--serif); font-style:italic; color:var(--lavende
   <p style="font-size:0.72rem; color:var(--mint-lt); line-height:1.9; max-width:360px; margin:0 auto; opacity:0.75;">
     Las fotos de nuestra sesión llegarán pronto. Por ahora, reservamos estos espacios con todo nuestro amor.
   </p>
-
   <div class="row">
-  <div class="column gallery-container">
-    <img src="1.JPG">
-  </div>
-  <div class="column gallery-container">
-    <img src="2.JPG">
-  </div>
-  <div class="column gallery-container">
-    <img src="3.JPG">
-  </div>
-  <div class="column gallery-container">
-    <img src="4.JPG">
+    <div class="column gallery-container">
+      <img src="1.JPG">
+    </div>
+    <div class="column gallery-container">
+      <img src="2.JPG">
+    </div>
+    <div class="column gallery-container">
+      <img src="3.JPG">
+    </div>
+    <div class="column gallery-container">
+      <img src="4.JPG">
+    </div>
   </div>
 </div>
-  <!-- <div class="gallery-container">
-    <div class="gallery-item">
-      <img src="1.JPG" width="400">
-    </div>
-    <div class="gallery-item">
-      <img src="2.JPG" width="400">
-    </div>
-    <div class="gallery-item">
-      <img src="3.JPG" width="400">
-    </div>
-    <div class="gallery-item">
-      <img src="4.JPG" width="400">
-    </div>
-    <div class="gallery-item">
-      <img src="5.JPG" width="400">
-    </div>
-  </div>
-</div> -->
 
 <!-- ITINERARY -->
 <div id="itinerario" style="background:var(--beige-lt);">
