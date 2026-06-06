@@ -232,10 +232,62 @@ nav a:active { color: var(--lavender-dk); }
   display:grid; grid-template-columns:repeat(3,1fr);
   gap:6px; max-width:860px; margin:2.5rem auto 0;
 }
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+/* Create four equal columns that sits next to each other */
+.column {
+  flex: 25%;
+  max-width: 25%;
+  padding: 0 4px;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+  .column {
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
 .g-cell {
   background:rgba(168,197,181,0.1);
   aspect-ratio:1; display:flex; align-items:center;
   justify-content:center; flex-direction:column; gap:0.4rem; padding:1rem;
+}
+/* Container layout */
+.gallery-container {
+  display: grid;
+  /* Automatically fits as many columns as possible with a minimum width of 250px */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  /* Adds a 16px gap between grid rows and columns */
+  gap: 1rem; 
+  padding: 1rem;
+}
+
+/* Image scaling rules */
+.gallery-item img {
+  width: 100%;
+  height: 200px;
+  /* Forces images to fill the box without distorting aspect ratios */
+  object-fit: cover; 
+  border-radius: 8px;
 }
 .g-cell.tall { grid-row:span 2; aspect-ratio:auto; min-height:200px; }
 .g-cell svg { width:22px; height:22px; stroke:var(--mint); opacity:0.35; }
@@ -560,29 +612,39 @@ footer .quote { font-family:var(--serif); font-style:italic; color:var(--lavende
   <p style="font-size:0.72rem; color:var(--mint-lt); line-height:1.9; max-width:360px; margin:0 auto; opacity:0.75;">
     Las fotos de nuestra sesión llegarán pronto. Por ahora, reservamos estos espacios con todo nuestro amor.
   </p>
-  <div class="gallery-grid">
-    <div class="g-cell tall">
-      <svg viewBox="0 0 24 24" fill="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-      <span>Foto por añadir</span>
-    </div>
-    <div class="g-cell">
-      <svg viewBox="0 0 24 24" fill="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-      <span>Foto por añadir</span>
-    </div>
-    <div class="g-cell">
-      <svg viewBox="0 0 24 24" fill="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-      <span>Foto por añadir</span>
-    </div>
-    <div class="g-cell">
-      <svg viewBox="0 0 24 24" fill="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-      <span>Foto por añadir</span>
-    </div>
-    <div class="g-cell">
-      <svg viewBox="0 0 24 24" fill="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-      <span>Foto por añadir</span>
-    </div>
+
+  <div class="row">
+  <div class="column gallery-container">
+    <img src="1.jpg">
+  </div>
+  <div class="column gallery-container">
+    <img src="2.jpg">
+  </div>
+  <div class="column gallery-container">
+    <img src="3.jpg">
+  </div>
+  <div class="column gallery-container">
+    <img src="4.jpg">
   </div>
 </div>
+  <!-- <div class="gallery-container">
+    <div class="gallery-item">
+      <img src="1.JPG" width="400">
+    </div>
+    <div class="gallery-item">
+      <img src="2.JPG" width="400">
+    </div>
+    <div class="gallery-item">
+      <img src="3.JPG" width="400">
+    </div>
+    <div class="gallery-item">
+      <img src="4.JPG" width="400">
+    </div>
+    <div class="gallery-item">
+      <img src="5.JPG" width="400">
+    </div>
+  </div>
+</div> -->
 
 <!-- ITINERARY -->
 <div id="itinerario" style="background:var(--beige-lt);">
