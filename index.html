@@ -444,24 +444,17 @@ footer .quote { font-family:var(--serif); font-style:italic; color:var(--lavende
   </div>
 </div>
 
-<!-- SAVE THE DATE -->
+<!-- COUNTDOWN -->
 <div class="countdown-wrap" id="faltan">
-  <div style="position: relative; z-index: 1; max-width: 700px; margin: 0 auto;">
-    <span class="tag" style="color: var(--mint-lt); display: block; margin-bottom: 2rem;">Nos complace invitarte</span>
-    
-    <p style="font-family: var(--serif); font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 400; font-style: italic; color: var(--white); line-height: 1.4; margin: 1.5rem 0;">
-      Al matrimonio de
-    </p>
-    
-    <div style="width: 60px; height: 2px; background: linear-gradient(90deg, var(--mint), var(--mint-lt)); margin: 1.5rem auto; border-radius: 2px;"></div>
-    
-    <p style="font-family: var(--serif); font-size: clamp(1.8rem, 5vw, 2.4rem); font-weight: 400; font-style: italic; color: var(--white); line-height: 1.4; margin: 1.5rem 0;">
-      Gema & Luis
-    </p>
-    
-    <p style="font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--mint-lt); opacity: 0.85; margin-top: 1.2rem;">
-      Sábado, 8 de Agosto, 2026 · San José, Costa Rica
-    </p>
+  <span class="tag">Faltan</span>
+  <div class="cd-grid">
+    <div class="cd-item"><span class="cd-num" id="cd-d">--</span><span class="cd-unit">Días</span></div>
+    <span class="cd-sep">·</span>
+    <div class="cd-item"><span class="cd-num" id="cd-h">--</span><span class="cd-unit">Horas</span></div>
+    <span class="cd-sep">·</span>
+    <div class="cd-item"><span class="cd-num" id="cd-m">--</span><span class="cd-unit">Minutos</span></div>
+    <span class="cd-sep">·</span>
+    <div class="cd-item"><span class="cd-num" id="cd-s">--</span><span class="cd-unit">Segundos</span></div>
   </div>
 </div>
 
@@ -738,7 +731,51 @@ footer .quote { font-family:var(--serif); font-style:italic; color:var(--lavende
   <p class="quote">"Un día más, un día menos"</p>
 </footer>
 
+<!-- ══════════════════════════════════════════════════════════════════
+     COUNTDOWN — diseñado para sobrevivir WhatsApp WebView en iPhone
+     Estrategia: timestamp hardcodeado + RAF + setInterval de respaldo
+     ══════════════════════════════════════════════════════════════════ -->
+<script>
+(function(){
+  // Timestamp exacto: 8 agosto 2026, 12:30 am, hora Costa Rica (UTC-6)
+  // = 2026-08-08T18:30:00Z en milisegundos
+  var TARGET_MS = 1786213800000;
 
+  var elD = document.getElementById('cd-d');
+  var elH = document.getElementById('cd-h');
+  var elM = document.getElementById('cd-m');
+  var elS = document.getElementById('cd-s');
+
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+
+  function render() {
+    var diff = TARGET_MS - Date.now();
+    if (diff <= 0) { elD.textContent=elH.textContent=elM.textContent=elS.textContent='00'; return; }
+    elD.textContent = pad(Math.floor(diff / 86400000));
+    elH.textContent = pad(Math.floor(diff % 86400000 / 3600000));
+    elM.textContent = pad(Math.floor(diff % 3600000  / 60000));
+    elS.textContent = pad(Math.floor(diff % 60000    / 1000));
+  }
+
+  // Primer render inmediato
+  render();
+
+  // setInterval (funciona en la mayoría de entornos)
+  var iv = setInterval(render, 1000);
+
+  // requestAnimationFrame como respaldo por si setInterval es throttled
+  var lastSec = -1;
+  function raf() {
+    var s = Math.floor(Date.now() / 1000);
+    if (s !== lastSec) { lastSec = s; render(); }
+    requestAnimationFrame(raf);
+  }
+  if (typeof requestAnimationFrame === 'function') {
+    requestAnimationFrame(raf);
+    // Si RAF está activo, el setInterval es redundante pero inocuo
+  }
+})();
+</script>
 
 </body>
 </html>
