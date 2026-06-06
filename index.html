@@ -770,8 +770,8 @@ footer .quote { font-family:var(--serif); font-style:italic; color:var(--lavende
   <div class="rsvp-inner">
     <div>
       <div class="qr-frame">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdFbLqtQ5_ge5SX5nFuei_CXmQitbWRxuF4ilEDzRy1XeL6ng/viewform" target="_blank" style="display:flex; align-items:center; justify-content:center; text-decoration:none;">
-          <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https%3A%2F%2Fdocs.google.com%2Fforms%2Fd%2Fe%2F1FAIpQLSdFbLqtQ5_ge5SX5nFuei_CXmQitbWRxuF4ilEDzRy1XeL6ng%2Fviewform" alt="QR Code - Confirmar asistencia" width="150" height="150" style="display:block;">
+        <a id="qr_link_btn" href="https://docs.google.com/forms/d/e/1FAIpQLSdFbLqtQ5_ge5SX5nFuei_CXmQitbWRxuF4ilEDzRy1XeL6ng/viewform" target="_blank" style="display:flex; align-items:center; justify-content:center; text-decoration:none;">
+          <img id="qr_link_scan" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https%3A%2F%2Fdocs.google.com%2Fforms%2Fd%2Fe%2F1FAIpQLSdFbLqtQ5_ge5SX5nFuei_CXmQitbWRxuF4ilEDzRy1XeL6ng%2Fviewform" alt="QR Code - Confirmar asistencia" width="150" height="150" style="display:block;">
         </a>
       </div>
       <span class="qr-label">Escanea para confirmar</span>
@@ -927,6 +927,20 @@ function copyToClipboard(text) {
     alert('Copiado: ' + text);
   });
 }
+
+const urlString = window.location.search;
+
+// Access searchParams directly from the URL object
+const qtyInvitados = urlString ? new URLSearchParams(urlString).get('inv') : null;
+const qtyURL =
+"https://docs.google.com/forms/d/e/1FAIpQLSdFbLqtQ5_ge5SX5nFuei_CXmQitbWRxuF4ilEDzRy1XeL6ng/viewform?usp=pp_url&entry.858738376="+qtyInvitados;
+console.log(qtyURL)
+
+const myLinkButton = document.getElementById('qr_link_btn');
+const myLinkScan = document.getElementById('qr_link_scan');
+myLinkButton.href = qtyURL;
+myLinkScan.href = qtyURL;
+
 </script>
 
 </body>
