@@ -82,6 +82,16 @@ nav a:active { color: var(--lavender-dk); }
 .hero-floral.bl { bottom:24px; left:-8px; transform:scaleY(-1); }
 .hero-floral.br { bottom:24px; right:-8px; transform:scale(-1,-1); }
 
+/* Mobile: reduce floral size and clip overflow so they don't overlap content */
+@media (max-width: 480px) {
+  .hero-floral { width:100px; opacity:0.75; }
+  .hero-floral.tl { top:44px; left:-12px; }
+  .hero-floral.tr { top:44px; right:-12px; }
+  .hero-floral.bl { bottom:60px; left:-12px; }
+  .hero-floral.br { bottom:60px; right:-12px; }
+  .hero { overflow: hidden; }
+}
+
 .hero-inner { position:relative; z-index:1; }
 
 .tag {
@@ -240,54 +250,35 @@ nav a:active { color: var(--lavender-dk); }
 .g-cell.tall { grid-row:span 2; aspect-ratio:auto; min-height:200px; }
 .g-cell svg { width:22px; height:22px; stroke:var(--mint); opacity:0.35; }
 .g-cell span { font-size:0.48rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--mint); opacity:0.3; }
-/* Container layout */
-.gallery-container {
-  display: grid;
-  /* Automatically fits as many columns as possible with a minimum width of 250px */
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  /* Adds a 16px gap between grid rows and columns */
-  gap: 1rem;
-  padding: 1rem;
-}
-/* Image scaling rules */
-.gallery-item img {
-  width: 100%;
-  height: 200px;
-  /* Forces images to fill the box without distorting aspect ratios */
-  object-fit: cover;
-  border-radius: 8px;
-}
-
+/* ── GALLERY GRID — responsive ── */
 .row {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0 4px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  padding: 0;
+  width: 100%;
+  box-sizing: border-box;
 }
-/* Create four equal columns that sits next to each other */
 .column {
-  flex: 25%;
-  max-width: 25%;
-  padding: 0 4px;
+  padding: 0;
 }
 .column img {
-  margin-top: 8px;
-  vertical-align: middle;
+  display: block;
   width: 100%;
+  height: auto;
+  object-fit: unset;
+  border-radius: 4px;
 }
-/* Responsive layout - makes a two column-layout instead of four columns */
-@media screen and (max-width: 800px) {
-  .column {
-    flex: 50%;
-    max-width: 50%;
-  }
+/* Landscape mobile → 4 columnas */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+  .row { grid-template-columns: repeat(4, 1fr); }
 }
-/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-  .column {
-    flex: 100%;
-    max-width: 100%;
-  }
+/* Portrait mobile → 2 columnas */
+@media screen and (max-width: 600px) and (orientation: portrait) {
+  .row { grid-template-columns: repeat(2, 1fr); }
 }
+/* Tablet portrait → 4 columnas normales (ya lo es por defecto) */
+.gallery-container { display: contents; }
 
 /* ── ITINERARY ── */
 .itinerary { display:flex; flex-direction:column; align-items:center; margin-top:2.5rem; }
@@ -538,7 +529,7 @@ footer .quote { font-family:var(--serif); font-style:italic; color:var(--lavende
 
   <div class="hero-inner">
     <span class="tag">¡Nos casamos!</span>
-    <p><img src="round_logo.png" width="370"></p>
+    <p><img src="round_logo.png" style="width:min(370px, 80vw); height:auto; display:block; margin:0 auto;"></p>
     <p class="hero-date">Sábado · 08 · 08 · 2026</p>
     <p class="hero-place">San José, Costa Rica</p>
     <p class="hero-quote">"Escribiendo nuestra historia de amor de la mano de Dios"</p>
@@ -821,7 +812,7 @@ footer .quote { font-family:var(--serif); font-style:italic; color:var(--lavende
 <!-- FOOTER -->
 <footer>
   <!-- <p class="footer-names">Gema &amp; Luis</p> -->
-  <p><img src="long_logo.png" width="370"></p>
+  <p><img src="long_logo.png" style="width:min(370px, 85vw); height:auto; display:block; margin:0 auto;"></p>
   <div class="accent-line" style="margin:1rem auto;"></div>
   <!-- <p>08 · 08 · 2026 &nbsp;·&nbsp; San José, Costa Rica</p> -->
   <!-- <p>08 · 08 · 2026</p>     -->
