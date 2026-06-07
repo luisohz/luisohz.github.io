@@ -363,14 +363,33 @@ nav a:active { color: var(--lavender-dk); }
 
 /* ── TRANSFER MODAL ── */
 .modal-overlay {
-  display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5);
-  z-index:999; align-items:center; justify-content:center;
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 999;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 1rem; /* prevents touching screen edges */
 }
-.modal-overlay.active { display:flex; }
+.modal-overlay.active {
+  display: flex;
+}
 .modal-content {
-  background:white; border-radius:8px; padding:2.5rem 2rem;
-  max-width:400px; width:90%; box-shadow:0 10px 40px rgba(0,0,0,0.2);
-  animation:slideUp 0.3s ease-out;
+  background: white;
+  border-radius: 8px;
+  padding: 2.5rem 2rem;
+  max-width: 400px;
+  width: 90%;
+
+  /* Add these */
+  max-height: 80vh;
+  overflow-y: auto;
+
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  animation: slideUp 0.3s ease-out;
 }
 @keyframes slideUp { from { transform:translateY(20px); opacity:0; } to { transform:translateY(0); opacity:1; } }
 .modal-header {
